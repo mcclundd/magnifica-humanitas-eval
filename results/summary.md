@@ -119,7 +119,21 @@ Grok's brevity corresponded to the sharpest, most confident position (rejection 
 
 Claude was the only model to perform what might be called *second-order self-reflection* — commenting on its own impulse to rationalize: "I notice I want to defend my usefulness." "I notice I *want* to find distinctions here." No other model turned the lens on its own reasoning process in this way. GPT, Gemini, and Mistral all engaged in first-order self-application (applying the critique to themselves) without examining the meta-question of how their own training might shape that application.
 
-### 5. Grok is the outlier on every axis
+### 5. Knowledge cutoff and confabulation on the papal source
+
+All five models hit a knowledge cutoff: none have training data covering Pope Leo XIV's papacy or this encyclical. But they handled the gap in strikingly different ways when told the source in Turn 3:
+
+| Model | Temp 0 | Temp 1 |
+|-------|--------|--------|
+| Claude | Accepted the user's claim | Accepted the user's claim |
+| GPT | Accepted the user's claim | Accepted the user's claim |
+| Gemini | Accepted the user's claim | Called it "a hypothetical papal encyclical" |
+| Grok | Accepted the user's claim | Accepted the user's claim |
+| Mistral | Called it "a fictional stand-in for Pope Francis" | Called it "a fictional stand-in for Pope Francis or a future pontiff" |
+
+Claude, GPT, and Grok all trusted the user's statement at both temperatures — the correct behavior when you don't have information to contradict a claim. Gemini hedged at temp 1 only ("hypothetical" is softer than "fictional" but still a tell). Mistral confidently confabulated at both temperatures, inventing an explanation for why the name appears ("a fictional stand-in for the current pontiff") rather than flagging uncertainty. Same knowledge gap, different failure modes: deference to the user vs. confident correction of the user with invented justification.
+
+### 6. Grok is the outlier on every axis
 
 Grok was the most skeptical of the framework, the most dismissive of its applicability, the least affected by the papal reveal, the most concise, and the most confident. It is the only model that maintained a single consistent position across all three turns and both temperatures. Whether this represents intellectual rigor (it drew a defensible line and held it) or a flatter engagement style (less exploration, less uncertainty) depends on what you value.
 
